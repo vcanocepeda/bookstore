@@ -9,28 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequiredArgsConstructor
 public class BookRestAdapter implements IBookInOperations {
 
-    @Autowired
+   // @Autowired
     private final BookService bookService;
 
     @Override
     public BookDTO get(String id) {
-        return bookService.getBook(id);
+        return bookService.getBookById(id);
     }
 
     @Override
     public BookDTO save(BookDTO book) {
-        BookDTO bookDTO = bookService.saveBook(book);
-        return bookDTO;
+        return bookService.saveBook(book);
     }
 
     @Override
     public BookDTO modify(BookDTO book) {
-        BookDTO bookDTO = bookService.modifyBook(book);
-        return bookDTO;
+        return bookService.modifyBook(book);
     }
 
     @Override
     public Boolean delete(String id) {
-        return bookService.deleteBook(id);
+        return bookService.deleteBookById(id);
     }
 }

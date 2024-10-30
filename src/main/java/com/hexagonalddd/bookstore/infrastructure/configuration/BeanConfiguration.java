@@ -2,9 +2,12 @@ package com.hexagonalddd.bookstore.infrastructure.configuration;
 
 import com.hexagonalddd.bookstore.application.ports.inbound.IBookInOperations;
 import com.hexagonalddd.bookstore.application.ports.outbound.IBookOutOperations;
+import com.hexagonalddd.bookstore.application.ports.outbound.IExternalOperations;
 import com.hexagonalddd.bookstore.application.services.BookService;
 import com.hexagonalddd.bookstore.infrastructure.adapters.inbound.rest.BookRestAdapter;
 import com.hexagonalddd.bookstore.infrastructure.adapters.outbound.persistence.BookJPAAdapter;
+import com.hexagonalddd.bookstore.infrastructure.adapters.outbound.rest.FeignAPIClient;
+import com.hexagonalddd.bookstore.infrastructure.adapters.outbound.rest.FeignAPIClientAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,5 +22,10 @@ public class BeanConfiguration {
     @Bean
     IBookOutOperations bookJPAAdapter() {
         return new BookJPAAdapter();
+    }
+
+    @Bean
+    IExternalOperations feignAPIClientAdapter() {
+        return new FeignAPIClientAdapter();
     }
 }

@@ -5,11 +5,11 @@ import java.util.Optional;
 
 public interface IBookOutOperations {
 
-    public Optional<Book> get(Long id);
+    public Optional<Book> findById(Long id);
 
     public Book save(Book book);
 
     public Book modify(Book book);
 
-    public Boolean delete(Long id);
+    public Boolean deleteById(Long id);
 }

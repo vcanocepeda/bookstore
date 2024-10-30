@@ -13,7 +13,7 @@ public class BookJPAAdapter implements IBookOutOperations {
     private BookJPARepository bookRepository;
 
     @Override
-    public Optional<Book> get(Long id) {
+    public Optional<Book> findById(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         return book;
     }
@@ -31,7 +31,7 @@ public class BookJPAAdapter implements IBookOutOperations {
     }
 
     @Override
-    public Boolean delete(Long id) {
+    public Boolean deleteById(Long id) {
         bookRepository.deleteById(id);
         return true;
     }
